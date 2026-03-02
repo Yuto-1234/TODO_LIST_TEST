@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOリスト</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>TODOリスト</h1>
+        <div class="input-area">
+            <input type="text" id="todo-input" placeholder="新しいタスクを追加">
+            <button id="add-button">追加</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+     <script>
+    const addbutton =document.getElementById("add-button");
+    const todoinput =document.getElementById("todo-input");
+    const todolist =document.getElementById("todo-list");
+
+    addbutton.onclick=function(){
+
+        const tasktext = todoinput.value;
+        if (tasktext !==""){
+            const li = document.createElement("li");
+
+            li.textContent = tasktext;
+            todolist.appendChild(li);
+
+            todoinput.value="";
+             const deleatebutton = document.createElement("button");
+            deleatebutton.textContent="削除"
+
+            deleatebutton.onclick=function(){
+                todolist.removeChild(li);
+            }
+                li.appendChild(deleatebutton);
+                todolist.appendChild(li);
+
+                todoinput.value="";
+            
+        }
+        else{
+            alert("何か入力してください");
+        }
+        }
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
